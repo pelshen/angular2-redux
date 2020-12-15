@@ -1,5 +1,5 @@
 {
-  "name": "angular2-redux",
+  "name": "ngx-redux",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -64,11 +64,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/InfomediaLtd/angular2-redux.git"
+    "url": "https://github.com/pelshen/angular2-redux.git"
   },
-  "main": "bundles/angular2-redux.umd.js",
-  "module": "esm5/angular2-redux.js",
-  "es2015": "esm2015/angular2-redux.js",
-  "typings": "angular2-redux.d.ts",
-  "metadata": "angular2-redux.metadata.json"
+  "main": "bundles/ngx-redux.umd.js",
+  "module": "esm5/ngx-redux.js",
+  "es2015": "esm2015/ngx-redux.js",
+  "typings": "ngx-redux.d.ts",
+  "metadata": "ngx-redux.metadata.json"
 }
