@@ -1,5 +1,5 @@
 {
-  "name": "ngx-redux",
+  "name": "angularx-redux",
   "version": "8.0.1",
   "scripts": {
     "ng": "ng",
@@ -67,9 +67,9 @@
     "type": "git",
     "url": "https://github.com/pelshen/angular2-redux.git"
   },
-  "main": "bundles/ngx-redux.umd.js",
-  "module": "esm5/ngx-redux.js",
-  "es2015": "esm2015/ngx-redux.js",
-  "typings": "ngx-redux.d.ts",
-  "metadata": "ngx-redux.metadata.json"
+  "main": "bundles/angularx-redux.umd.js",
+  "module": "esm5/angularx-redux.js",
+  "es2015": "esm2015/angularx-redux.js",
+  "typings": "angularx-redux.d.ts",
+  "metadata": "angularx-redux.metadata.json"
 }
