@@ -1,4 +1,4 @@
-import { Observable, of } from 'rxjs';
+import { Observable, from } from 'rxjs';
 
 // ensure required operators are enabled
 import { map, distinctUntilChanged } from 'rxjs/operators';
@@ -28,7 +28,7 @@ export class AppStore {
     public store$: Observable<any> = null;
 
     constructor(store: any) {
-        this.store$ =  of(store);
+        this.store$ = from(store);
         this.getState = () => {
             return store.getState();
         };
