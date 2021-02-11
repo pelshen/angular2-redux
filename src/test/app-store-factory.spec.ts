@@ -31,7 +31,7 @@ describe('applyDevTools', () => {
         spyOn(wrapper, 'devToolsMiddleware');
         const devToolsMiddlewareSpy = wrapper.devToolsMiddleware;
 
-        window['devToolsExtension'] = () => wrapper.devToolsMiddleware;
+        window['__REDUX_DEVTOOLS_EXTENSION__'] = () => wrapper.devToolsMiddleware;
 
         // specifying debug option
         applyDevTools(true)();
