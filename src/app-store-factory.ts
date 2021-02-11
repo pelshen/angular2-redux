@@ -17,10 +17,10 @@ export function applyDevTools(debug) {
     }
   }
   // config the dev tools extension is installed
-  isDebug = isDebug && window && window['devToolsExtension'];
+  isDebug = isDebug && window && window['__REDUX_DEVTOOLS_EXTENSION__'];
 
   // only apply is dev tools is installed
-  return isDebug ? window['devToolsExtension']() : f => f;
+  return isDebug ? window['__REDUX_DEVTOOLS_EXTENSION__']() : f => f;
 }
 /* tslint:enable */
 
