@@ -1,8 +1,4 @@
 import { TestBed, async } from '@angular/core/testing';
-import { AppStore } from '../index';
-import { createStore } from 'redux';
-import { Observable } from 'rxjs';
-import { Actions } from '../actions';
 import { AppComponent } from '../app/app.component';
 import { createAppStoreFactory, createAppStoreFactoryWithOptions, applyDevTools } from '../app-store-factory';
 
@@ -13,49 +9,6 @@ const reducer = (state = 0, action) => {
         return state;
     }
 };
-
-describe('applyDevTools', () => {
-    beforeEach(async(() => {
-        TestBed.configureTestingModule({
-            declarations: [
-                AppComponent
-            ]
-        }).compileComponents();
-    }));
-
-    it('applies debug options properly', () => {
-
-        const wrapper = {
-            devToolsMiddleware: () => { }
-        };
-        spyOn(wrapper, 'devToolsMiddleware');
-        const devToolsMiddlewareSpy = wrapper.devToolsMiddleware;
-
-        window['__REDUX_DEVTOOLS_EXTENSION__'] = () => wrapper.devToolsMiddleware;
-
-        // specifying debug option
-        applyDevTools(true)();
-        expect(devToolsMiddlewareSpy).toHaveBeenCalledTimes(1);
-        // expect(devToolsMiddlewareSpy.calls.count() === 1);
-        applyDevTools(false)();
-        expect(devToolsMiddlewareSpy).toHaveBeenCalledTimes(1);
-
-        // using function to specify debug option
-        applyDevTools(() => true)();
-        expect(devToolsMiddlewareSpy).toHaveBeenCalledTimes(2);
-        applyDevTools(() => false)();
-        expect(devToolsMiddlewareSpy).toHaveBeenCalledTimes(2);
-
-        // not specifying
-        applyDevTools(true)();
-        expect(devToolsMiddlewareSpy).toHaveBeenCalledTimes(3);
-        applyDevTools(undefined)();
-        expect(devToolsMiddlewareSpy).toHaveBeenCalledTimes(3);
-        applyDevTools(null)();
-        expect(devToolsMiddlewareSpy).toHaveBeenCalledTimes(3);
-
-    });
-});
 
 describe('createAppStoreFactoryWithOptions', () => {
     beforeEach(async(() => {

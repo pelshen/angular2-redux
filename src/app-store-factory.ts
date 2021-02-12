@@ -1,6 +1,7 @@
 import { AppStore } from './app-store';
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 /* tslint:disable */
 export function applyDevTools(debug) {
@@ -16,11 +17,9 @@ export function applyDevTools(debug) {
       isDebug = debug;
     }
   }
-  // config the dev tools extension is installed
-  isDebug = isDebug && window && window['__REDUX_DEVTOOLS_EXTENSION__'];
 
   // only apply is dev tools is installed
-  return isDebug ? window['__REDUX_DEVTOOLS_EXTENSION__']() : f => f;
+  return isDebug;
 }
 /* tslint:enable */
 
@@ -52,16 +51,15 @@ export function createAppStoreFactoryWithOptions({
     const middleware = [thunk];
 
     let reduxAppStore;
-    let createStoreWithEnhancers;
+    debug = applyDevTools(debug);
     if (debug === undefined || !debug) {
-      createStoreWithEnhancers = applyMiddleware(...middleware)(createStore);
+      let createStoreWithEnhancers = applyMiddleware(...middleware)(createStore);
       reduxAppStore = createStoreWithEnhancers(reducer);
     } else {
       reduxAppStore = createStore(
         reducer,
-        compose(
-          applyMiddleware(...middleware, ...additionalMiddlewares),
-          applyDevTools(debug)
+        composeWithDevTools(
+          applyMiddleware(...middleware, ...additionalMiddlewares)
         )
       );
     }
