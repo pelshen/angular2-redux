@@ -1,6 +1,6 @@
 {
   "name": "angularx-redux",
-  "version": "8.0.5",
+  "version": "8.0.6",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -21,8 +21,9 @@
     "@angular/platform-browser": "^8.2.14",
     "@angular/platform-browser-dynamic": "^8.2.14",
     "@angular/router": "^8.2.14",
-    "core-js": "^2.5.4",
+    "core-js": "^3.7.0",
     "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "rxjs": "^6.6.3",
     "tslib": "^1.10.0",
